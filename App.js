@@ -1,11 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet, 
+  Text, 
+  View
+} from 'react-native';
+import ListEntries from './components/ListEntries';
+import TimeSelect from './components/TimeSelect';
 
-export default function App() {
+const App = () => {
+  let x = 1;
+  
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.heading}> Alarmate </Text>
+      <SafeAreaView style={styles.ListEntries}>
+        <ListEntries />
+      </SafeAreaView>
+      <View style={styles.TimeSelect}>
+        <TimeSelect />
+      </View>
     </View>
   );
 }
@@ -13,8 +27,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  heading: {
+    fontSize: 25,
+    padding: 40,
+  },
+  TimeSelect: {
+    paddingTop: '10%',
+    width: '50%',
+    bottom: 20,
+  },
+  ListEntries: {
+    flex: 1,
+    width: '100%',
+  }
 });
+
+export default App;
